@@ -8,10 +8,45 @@
          columns:
            - name: date_date
              description: date of purchase
+           - name: orders_id
+             description : order id of Greenweez
+           - name: products_id
+             description : id of the product sold at Greenweez
+             tests:
+                 - unique
+                 - NOT_NULL
+           - name: revenue
+             description : benefice of Greenweez
+           - name: quantity
+             description : order id of Greenweez
        - name: product
          identifier: raw_gz_product
          description: products of Greenweez
+         columns :
+           - name: products_id
+             description : id of the products
+             tests:
+                  - unique
+                  - NOT_NULL
+           - name: purchase_price
+             description : the purchase price of the products
        - name: ship
          identifier: raw_gz_ship
+         description : all things regarding logistic
+         columns : 
+           - name: orders_id
+             description : order id of Greenweez
+             tests:
+                 - unique
+                 - NOT_NULL
+           - name: shipping_fee
+             description : cost of the ship
+           - name: shipping_fee_1
+             description : same as shipping_fee
+           - name: logcost
+             description : logistic cost
+           - name: ship_cost
+             description : shipping cost
+
 
     

@@ -1,4 +1,4 @@
-with 
+@with 
 
 source as (
 
@@ -17,3 +17,13 @@ renamed as (
 )
 
 select * from renamed
+
+ - name: product
+   identifier: raw_gz_product
+   description: products of Greenweez
+   columns:
+     - name: <products_id>
+       description: id of the products
+       tests:
+         - unique
+         - NOT_NULL
