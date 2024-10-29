@@ -1,0 +1,17 @@
+ sources:
+   - name: raw
+     schema: gz_raw_data
+     tables:
+       - name: sales
+         identifier: raw_gz_sales
+         description: sales of Greenweez / we have on row per product_id found in each orders_id
+         columns:
+           - name: date_date
+             description: date of purchase
+       - name: product
+         identifier: raw_gz_product
+         description: products of Greenweez
+       - name: ship
+         identifier: raw_gz_ship
+
+    
