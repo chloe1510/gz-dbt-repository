@@ -1,10 +1,11 @@
 SELECT *
-FROM {{ ref('int_orders_margin') }}  
+FROM {{ ref('stg_raw__adwords') }}  
 UNION ALL
 SELECT *
-FROM {{ ref('int_orders_operational') }}  
+FROM {{ ref('stg_raw__bing') }}  
 UNION ALL
 SELECT *
-FROM {{ ref('int_sales_margin') }}
+FROM {{ ref('stg_raw__criteo') }}
+UNION ALL
 SELECT *
-FROM {{ ref('int_campaigns') }}
+FROM {{ ref('stg_raw__facebook') }}

@@ -53,6 +53,12 @@
          - name: ads_cost
          - name: impression
          - name: click
+         tests:
+          - unique:
+              column_name: "(date_date || '-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date || '-'|| campaign_key)"
+
 
        - name: bing
          identifier: raw_gz_bing
@@ -64,6 +70,12 @@
          - name: ads_cost
          - name: impression
          - name: click
+         tests:
+          - unique:
+              column_name: "(date_date || '-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date || '-'|| campaign_key)"
+
    
 
        - name: criteo
@@ -76,6 +88,12 @@
          - name: ads_cost
          - name: impression
          - name: click
+         tests:
+          - unique:
+              column_name: "(date_date || '-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date || '-'|| campaign_key)"
+
 
        - name: facebook
          identifier: raw_gz_facebook
@@ -87,3 +105,10 @@
          - name: ads_cost
          - name: impression
          - name: click
+         tests:
+          - unique:
+              column_name: "(date_date || '-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date || '-'|| campaign_key)"
+
+      
