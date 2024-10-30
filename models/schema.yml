@@ -42,8 +42,48 @@
                - not_null
 
 
+    
+       - name: adwords
+         identifier: raw_gz_adwords
+         column : 
+         - name: date_date
+         - name: paid_source
+         - name: campaign_key
+         - name: camPGN_name AS campaign_name
+         - name: ads_cost
+         - name: impression
+         - name: click
 
-
-
-
+       - name: bing
+         identifier: raw_gz_bing
+         column : 
+         - name: date_date
+         - name: paid_source
+         - name: campaign_key
+         - name: camPGN_name AS campaign_name
+         - name: ads_cost
+         - name: impression
+         - name: click
    
+
+       - name: criteo
+         identifier: raw_gz_criteo
+         column : 
+         - name: date_date
+         - name: paid_source
+         - name: campaign_key
+         - name: camPGN_name AS campaign_name
+         - name: ads_cost
+         - name: impression
+         - name: click
+
+       - name: facebook
+         identifier: raw_gz_facebook
+         column : 
+         - name: date_date
+         - name: paid_source
+         - name: campaign_key
+         - name: camPGN_name AS campaign_name
+         - name: ads_cost
+         - name: impression
+         - name: click
