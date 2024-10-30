@@ -1,52 +1,53 @@
  sources:
-   - name: raw
-     schema: gz_raw_data
-     tables:
+    - name: raw
+      schema: gz_raw_data
+      tables:
        - name: sales
          identifier: raw_gz_sales
-         description: sales of Greenweez / we have on row per product_id found in each orders_id
+         description: sales of Greenweez / we have on row per productid found in each orders_id
          columns:
            - name: date_date
              description: date of purchase
            - name: orders_id
-             description : order id of Greenweez
-           - name: products_id
-             description : id of the product sold at Greenweez
-             tests:
-                 - unique
-                 - NOT_NULL
+             description: foreign key to ship
+           - name: pdt_id
+             description: foreign key to product
            - name: revenue
-             description : benefice of Greenweez
-           - name: quantity
-             description : order id of Greenweez
+             description: the amount paid by the customer to purchase the product. revenue = quantity * selling_price
+           - name: quanitity
+             description: the quantity of products purchased for a given order
+         tests:
+           - unique:
+               column_name: "(orders_id || '-' || pdt_id)"
+           ## OR ## if dbt_utils is installed
+           - dbt_utils.unique_combination_of_columns:
+               combination_of_columns:
+                 - orders_id
+                 - pdt_id
+
        - name: product
          identifier: raw_gz_product
          description: products of Greenweez
          columns :
-           - name: products_id
-             description : id of the products
-             tests:
-                  - unique
-                  - NOT_NULL
-           - name: purchase_price
-             description : the purchase price of the products
+         - name: products_id
+           description: Primary key
+           tests:
+            - unique
+            - not_null
+
        - name: ship
          identifier: raw_gz_ship
-         description : all things regarding logistic
-         columns : 
-           - name: orders_id
-             description : order id of Greenweez
-             tests:
-                 - unique
-                 - NOT_NULL
-           - name: shipping_fee
-             description : cost of the ship
-           - name: shipping_fee_1
-             description : same as shipping_fee
-           - name: logcost
-             description : logistic cost
-           - name: ship_cost
-             description : shipping cost
+         description: shipping data for Greenweez orders
+         columns:
+            - name: orders_id
+              description: Primary key
+              tests:
+               - unique
+               - not_null
 
 
-    
+
+
+
+
+   
